@@ -1,0 +1,21 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "pyproj",
+      "project": "savefile_processing\\savefile_processing.pyproj",
+      "name": "savefile_processing.pyproj"
+    },
+    {
+      "type": "python",
+      "interpreter": "(default)",
+      "interpreterArguments": "",
+      "scriptArguments": "save.eu4",
+      "nativeDebug": false,
+      "webBrowserUrl": "",
+      "project": "savefile_processing\\savefile_processing.py",
+      "name": "savefile_processing.py"
+    }
+  ]
+}
