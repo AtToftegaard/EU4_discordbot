@@ -15,16 +15,12 @@ def get_players(file):
                 line = file.readline()
     return players
 
+#def main():
+#    print("importing file: " +sys.argv[1])
+#    file = open(sys.argv[1])
 
-def main():
-    print("importing file: " +sys.argv[1])
-    file = open(sys.argv[1])
-
-    players = get_players(file)
+#    players = get_players(file)
       
-    print("%16s %12s" % ("player", "played as"))
-    for key in players:
-        print ("%16s %12s" % (key, players[key]))
-
-if __name__ == '__main__':
-    main();
+#    print("%16s %12s" % ("player", "played as"))
+#    for key in players:
+#        print ("%16s %12s" % (key, players[key]))
