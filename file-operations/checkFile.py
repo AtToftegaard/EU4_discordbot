@@ -1,4 +1,4 @@
-import os, sys, io, tkinter, re, pandas
+import os, sys, io, tkinter, re, pandas, pickle
 
 def check_country(file, country):
     openFile = open(file)
@@ -7,7 +7,6 @@ def check_country(file, country):
     for line in openFile:
         if(re.match(pattern, line)):
             return True
-
 
 def main():
     print("importing file: " +sys.argv[1])
@@ -18,4 +17,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
