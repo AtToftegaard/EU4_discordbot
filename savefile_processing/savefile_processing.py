@@ -2,6 +2,7 @@ import os, sys, io, tkinter, re, pandas
 
 def get_players(file):
     "Finds the list of all players and adds to dictionary"
+    file = open(file)
     players = dict()
     pattern = re.compile(r'players_countries={\n')
     for line in file:
@@ -17,8 +18,8 @@ def get_players(file):
 
 
 def main():
-    print("importing file: " +sys.argv[1])
-    file = open(sys.argv[1])
+    #print("importing file: " +sys.argv[1])
+    file = open("save.eu4")
 
     players = get_players(file)
       
@@ -27,4 +28,4 @@ def main():
         print ("%16s %12s" % (key, players[key]))
 
 if __name__ == '__main__':
-    main();
+    main()

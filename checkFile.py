@@ -8,6 +8,13 @@ def check_country(file, country):
         if(re.match(pattern, line)):
             return True
 
+def get_country(file, country):
+    openFile = open(file)
+    pattern = re.compile('.*(%s).*'%country)
+   
+    for line in openFile:
+        if(re.match(pattern, line)):
+            return line
 
 def main():
     print("importing file: " +sys.argv[1])

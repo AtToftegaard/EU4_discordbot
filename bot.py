@@ -1,7 +1,8 @@
 # Work with Python 3.6
-import discord, checkFile
+import discord, checkFile, savefile_processing
 
-TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXX'
+
+TOKEN = ''
 
 client = discord.Client()
 
@@ -29,11 +30,22 @@ async def on_message(message):
             else:    
                 await client.send_message(message.channel, role_name + " Does not exist in EU4")
 
+    if message.content.startswith('!getplayers'):
+            players = savefile_processing.get_players("save.eu4")
+            playersList = ""
+            
+            for key in players:
+                countryName = checkFile.get_country("country_codes.txt", players[key]).split()
+                print(countryName)
+                playerInfo = key + " is playing as " + countryName[2] + "\n"
+                playersList += playerInfo 
+            await client.send_message(message.channel, playersList)
 
     if message.content.startswith('!deleterole'):
-        role_name = message.content.lower().split("!deleterole ", maxsplit=1)[1]
-        role = discord.utils.get(message.server.roles, name=role_name)
-        await client.delete_role(message.server, role)
+            role_name = message.content.lower().split("!deleterole ", maxsplit=1)[1]
+            role = discord.utils.get(message.server.roles, name=role_name)
+            await client.delete_role(message.server, role)
+    
  
 @client.event
 async def on_ready():
